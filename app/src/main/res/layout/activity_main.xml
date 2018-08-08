@@ -6,6 +6,7 @@
     tools:context=".MainActivity">
 
     <com.stone.keyboardview.widget.KeyboardView
+        android:id="@+id/keyboard"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center" />

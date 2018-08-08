@@ -10,7 +10,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -29,19 +28,15 @@ public class KeyboardView extends View {
 
     public KeyboardView(Context context) {
         super(context);
-        Log.e("DEBUG", "一个参数");
         init(context, null);
     }
 
     public KeyboardView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        Log.e("DEBUG", "两个参数");
         init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
-        Log.e("DEBUG", "init");
-
         mKeyboard = new Keyboard();
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
@@ -57,13 +52,11 @@ public class KeyboardView extends View {
 
         CharSequence[] keyTextArr = arr.getTextArray(R.styleable.KeyboardView_kv_keys);
         CharSequence[] keyActions = arr.getTextArray(R.styleable.KeyboardView_kv_actions);
-        Log.e("DEBUG", "keyTextArr ->" + (keyTextArr == null ? "null" : keyTextArr.length));
         if (keyTextArr == null || keyTextArr.length == 0 || keyTextArr.length != line * column) {
             line = 4;
             column = 3;
             keyTextArr = DEFAULT_KEYS;
         }
-        Log.e("DEBUG", "keyTextArr again ->" + (keyTextArr == null ? "null" : keyTextArr.length));
         if (keyActions == null || keyActions.length == 0 || keyActions.length != keyTextArr.length) {
             keyActions = DEFAULT_ACTIONS;
         }
@@ -78,14 +71,12 @@ public class KeyboardView extends View {
         float keyTextSize = arr.getDimension(R.styleable.KeyboardView_kv_key_text_size, getResources().getDimension(R.dimen.font_text));
         int keyTextColor = arr.getColor(R.styleable.KeyboardView_kv_key_text_color, getResources().getColor(R.color.color_text));
         List<Key> keys = new ArrayList<>();
-        Log.e("DEBUG", "line ->" + line + "column ->" + column);
         for (int i = 0; i < line * column; i++) {
             Key key = new Key();
             RectF rectF = new RectF();
             key.setRectF(rectF);
             key.setCornerRadius(cornerRaduis);
             key.setText((String) keyTextArr[i]);
-            Log.e("DEBUG", key.getText());
             key.setTextColor(keyTextColor);
             key.setTextSize(keyTextSize);
             key.setAction(getAction((String) keyActions[i]));
@@ -152,8 +143,6 @@ public class KeyboardView extends View {
             } else {
                 canvas.drawText(key.getText(), rectF.centerX(), rectF.centerY() - textHeight / 2, mPaint);
             }
-
-//            Log.e(TAG, "key.text -> " + key.text + "i -> " + i + "left -> " + left + " top -> " + top + "textHeight -> " + textHeight + " fm.bottom -> " + fm.bottom + " fm.top -> " + fm.top);
         }
     }
 
@@ -168,23 +157,10 @@ public class KeyboardView extends View {
                 Key downKey = getSelectKey(x, y);
                 if (downKey != null) {
                     downKey.setPressed(true);
-//                    curDownKey = downKey;
                 }
                 invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
-//                if (curDownKey == null) {
-//                    return true;
-//                }
-//                float top = curDownKey.rectF.top;
-//                float left = curDownKey.rectF.left;
-//                float right = curDownKey.rectF.right;
-//                float bottom = curDownKey.rectF.bottom;
-//                if (x > left && x < right && y < bottom && y > top) {
-//                    return true;
-//                }
-//                curDownKey.bgColor = KEY_DEFAULT_COLOR;
-//                invalidate();
                 break;
             case MotionEvent.ACTION_UP:
                 for (Key key : mKeyboard.getKeys()) {
