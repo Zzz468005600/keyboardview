@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="key_default_color">#ddd</color>
+    <color name="key_press_color">#33000000</color>
+
+    <color name="color_text">#475669</color>
+
+</resources>

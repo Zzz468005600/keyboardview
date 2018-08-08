@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="KeyboardView">
+        <attr name="kv_line" format="integer" />
+        <attr name="kv_column" format="integer" />
+        <attr name="kv_keys" format="reference" />
+        <attr name="kv_actions" format="reference" />
+        <attr name="kv_vertical_margin" format="dimension" />
+        <attr name="kv_horizontal_margin" format="dimension" />
+        <attr name="kv_key_corner_radius" format="dimension" />
+        <attr name="kv_key_default_color" format="color" />
+        <attr name="kv_key_press_color" format="color" />
+        <attr name="kv_key_text_size" format="dimension" />
+        <attr name="kv_key_text_color" format="color" />
+    </declare-styleable>
+
+</resources>

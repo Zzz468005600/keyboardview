@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">keyboardview</string>
+
+    <string-array name="keys">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>清除</item>
+        <item>0</item>
+        <item>删除</item>
+    </string-array>
+
+    <string-array name="actions">
+        <item>normal</item>
+        <item>normal</item>
+        <item>normal</item>
+        <item>normal</item>
+        <item>normal</item>
+        <item>normal</item>
+        <item>normal</item>
+        <item>normal</item>
+        <item>normal</item>
+        <item>clear</item>
+        <item>normal</item>
+        <item>delete</item>
+    </string-array>
+</resources>
